@@ -1,4 +1,4 @@
-# Setting up Catapult network on nodes running Ubuntu 16.04
+# Build Catapult server on Ubuntu 16.04
 
 Set up a node on any hosting provider  
 Recommended minimum 4GB RAM and 80GB of disk space  
