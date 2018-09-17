@@ -15,13 +15,16 @@ gpasswd -a catapult sudo
 su -l catapult
 ```
 
-# Install dependencies
+## Install dependencies
+```
 sudo apt update
 sudo apt upgrade
 sudo apt install -y build-essential git cmake automake autoconf libtool pkg-config software-properties-common
+```
 
 
-# Install gcc 7
+## Install gcc 7
+```
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
 sudo apt install -y gcc-7 g++-7
 sudo apt clean 
@@ -29,34 +32,40 @@ sudo rm -rf /var/lib/apt/lists/*
 sudo rm /usr/bin/gcc /usr/bin/g++
 sudo ln -s /usr/bin/gcc-7 /usr/bin/gcc
 sudo ln -s /usr/bin/g++-7 /usr/bin/g++
+```
 
-
-# Create directories
+## Create directories
+```
 C_HOME=$HOME/catapult
 mkdir $C_HOME
 C_LIBS=$C_HOME/libs
 mkdir $C_LIBS
+```
 
 
-# Install rocksdb library
+## Install rocksdb library
+```
 cd $C_LIBS
 wget -O rocksdb-5.13.1.tar.gz https://github.com/facebook/rocksdb/archive/v5.13.1.tar.gz
 tar zxvf rocksdb-5.13.1.tar.gz
 cd rocksdb-5.13.1
 make
 sudo make install
+```
 
 
-# Install boost library
+## Install boost library
+```
 cd $C_LIBS
 wget https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.gz
 tar -xzvf boost_1_65_1.tar.gz
 cd boost_1_65_1
 ./bootstrap.sh
 sudo ./b2 install -j2
+```
 
-
-# Install googletest library
+## Install googletest library
+```
 cd $C_LIBS
 wget -O googletest-release-1.8.0.tar.gz https://github.com/google/googletest/archive/release-1.8.0.tar.gz
 tar zxvf googletest-release-1.8.0.tar.gz
@@ -66,9 +75,10 @@ cd _build
 cmake ..
 make
 sudo make install
+```
 
-
-# Install libzmq library
+## Install libzmq library
+```
 cd $C_LIBS
 wget -O libzmq-4.2.3.tar.gz https://github.com/zeromq/libzmq/archive/v4.2.3.tar.gz
 tar zxvf libzmq-4.2.3.tar.gz
@@ -78,9 +88,10 @@ cd _build
 cmake ..
 make
 sudo make install
+```
 
-
-# Install cppzmq
+## Install cppzmq
+```
 cd $C_LIBS
 wget -O cppzmq-4.2.3.tar.gz https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz
 tar zxvf cppzmq-4.2.3.tar.gz
@@ -90,9 +101,10 @@ cd _build
 cmake ..
 make
 sudo make install
+```
 
-
-# Install mongo-c-driver
+## Install mongo-c-driver
+```
 cd $C_LIBS
 wget https://github.com/mongodb/mongo-c-driver/releases/download/1.4.2/mongo-c-driver-1.4.2.tar.gz
 tar zxvf mongo-c-driver-1.4.2.tar.gz
@@ -100,9 +112,10 @@ cd mongo-c-driver-1.4.2
 ./configure --disable-automatic-init-and-cleanup
 make
 sudo make install
+```
 
-
-# Install mongo-cxx-driver
+## Install mongo-cxx-driver
+```
 cd $C_LIBS
 wget -O mongo-cxx-driver-r3.0.2.tar.gz https://github.com/mongodb/mongo-cxx-driver/archive/r3.0.2.tar.gz
 tar zxvf mongo-cxx-driver-r3.0.2.tar.gz
@@ -112,9 +125,10 @@ cd _build
 cmake -DBSONCXX_POLY_USE_BOOST=1 -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local ..
 make
 sudo make install
+```
 
-
-# Build catapult-server
+## Build catapult-server
+```
 cd $C_HOME
 git clone https://github.com/nemtech/catapult-server
 cd catapult-server/
@@ -136,3 +150,4 @@ cmake -DCMAKE_BUILD_TYPE=RelWithDebugInfo \
 ..
 make publish
 make
+```
