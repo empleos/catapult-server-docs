@@ -1,4 +1,4 @@
-# Configure NEM 2 Catapult server
+# Configure and run NEM 2 Catapult server
 
 Go to _build directory
 
