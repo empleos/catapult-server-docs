@@ -19,7 +19,7 @@ su -l catapult
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install -y build-essential git cmake automake autoconf libtool pkg-config software-properties-common gcc
+sudo apt install -y build-essential git cmake automake autoconf libtool pkg-config software-properties-common
 ```
 
 
