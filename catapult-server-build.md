@@ -26,6 +26,7 @@ sudo apt install -y build-essential git cmake automake autoconf libtool pkg-conf
 ## Install gcc 7
 ```
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
 sudo apt install -y gcc-7 g++-7
 sudo apt clean 
 sudo rm -rf /var/lib/apt/lists/* 
