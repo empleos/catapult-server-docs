@@ -6,7 +6,7 @@ Login to your node as root user
 
 ## Add user
 
-We don't recommend to use 'catapult' username for security reasons. Choose different usernames on each of your nodes.  
+Run the following commands as root. We don't recommend to use 'catapult' username for security reasons. Choose different usernames on each of your nodes.  
 ```
 useradd -s /bin/bash -m catapult  
 # set password for the user
