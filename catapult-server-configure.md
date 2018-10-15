@@ -4,7 +4,6 @@ Go to _build directory
 
 ## Copy configuration files
 ```
-mkdir resources
 cp ../resources/* resources/
 ```
 
@@ -45,27 +44,6 @@ vi resources/config-user.properties
 bootKey = 093FE36D2DF378771AED437006CD0618E2EEF7B44E3646F7B9AC0BEA624BC414
 ```
 
-## Configure server role and enable API extensions
-```
-# Edit resources/config-node.properties
-vi resources/config-node.properties
-
-[localnode]
-roles = Api
-
-[extensions]
-extension.addressextraction = true
-extension.mongo = true
-extension.partialtransaction = true
-extension.zeromq = true
-```
-
-## Install MongoDB
-```
-sudo apt-get install mongodb
-systemctl start mongodb
-```
-
 ## Create hashes.dat
 ```
 mkdir -p seed/mijin-test/00000
@@ -74,14 +52,14 @@ echo -n 6b23c0d5f35d1b11f9b683f0b0a617355deb11277d91ae091d399c655b87940d3f39d5c3
 
 ## Create Nemesis Block
 ```
-mkdir tmp data
-cd tmp
-../bin/catapult.tools.nemgen --nemesisProperties ../resources/mijin-test.properties
+cd bin
+./catapult.tools.nemgen --nemesisProperties ../resources/mijin-test.properties
 cd ..
 ```
 
 ## Copy data
 ```
+mkdir -p data/00000
 cp -r seed/mijin-test/* data/
 ```
 
