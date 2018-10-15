@@ -63,6 +63,34 @@ mkdir -p data/00000
 cp -r seed/mijin-test/* data/
 ```
 
+## Data for API nodes (we don't have any API nodes yet)
+```
+# Edit resources/peers-api.json
+vi resources/peers-api.json
+
+# leave the array empty
+{ 
+  "_info": "this file contains a list of api peers",
+  "knownPeers": [
+  ]
+}
+```
+
+## Data for the current Pear node
+```
+# Edit resources/peers-p2p.json
+vi resources/peers-p2p.json
+
+# Specify the first public key from addresses.txt
+"publicKey": "F5B92FD7EF1B51D62073E0F1F844CFA3B4C9F82D27FFAE0E0496C0AFD40DFF90",
+
+# Specify host's public IP
+"host": "xxx.xxx.xxx.xxx",
+
+# Specify node's name, for example:
+"name": "node1",
+```
+
 ## Run Catapult server
 ```
 cd bin
